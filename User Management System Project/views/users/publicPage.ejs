@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Login User</title>
+    <style>
+        .homeHeader {
+            width: 90%;
+            /* border: 1px solid red; */
+            margin: auto;
+        }
+
+        .homeHeader ul {
+            background-color: rgb(232, 253, 246);
+            display: flex;
+            flex-wrap: wrap;
+            list-style: none;
+            font-size: 30px;
+            text-decoration: none;
+            margin-top: 10px;
+            position: relative;
+            padding: 12px;
+        }
+
+
+        .homeHeader ul li a {
+            color: black;
+            padding: 12px;
+            text-decoration: none;
+        }
+
+        .homeHeader ul li a:hover {
+            background-color: rgb(8, 8, 8);
+            color: white;
+            font-size: 32px;
+        }
+        
+        #login {
+            position: absolute;
+            right: 150px;
+        }
+
+        #signup {
+            position: absolute;
+            right: 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="homeHeader">
+        <ul>
+            <li><a href="http://localhost:8080/">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Gallary</a></li>
+            <li id="login"><a href="http://localhost:8080/login">Sign in</a></li>
+            <li id="signup"><a href="http://localhost:8080/register">Sign up</a></li>
+        </ul>
+    </div>
+</body>
+
+</html>

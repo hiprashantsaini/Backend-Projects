@@ -1,0 +1,21 @@
+<h1>Welcome, <%= admin.name %> </h1>
+
+<a href="/admin/dashboard">Dashboard</a> 
+
+<table>
+    <tr>
+    <td><img src="/userImages/<%= admin.image %>" alt="<%= admin.image %>" width="100px"></td>
+    </tr>
+
+    <tr>
+        <td>Email</td>
+        <td><%= admin.email %></td>
+    </tr>
+
+    <tr>
+        <td>Mobile</td>
+        <td><%= admin.mobile %></td>
+    </tr>
+</table>
+
+<a href="/admin/logout">Logout</a>

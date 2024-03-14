@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile data</title>
+</head>
+<body>
+    <div>
+        <img src="userImages/<%= user.image %>" alt="<%= user.image %>" width="100px">
+
+        <form action="" method="post" enctype="multipart/form-data">
+        <input type="file" name="image"><!--It is not required i.e. user can or can not update his image-->
+        <input type="hidden" name="user_id" value="<%= user._id %>">
+        <br/><br/>
+        <input type="text" name="name" value="<%= user.name %>" placeholder="Enter name" required>
+        <br/><br/>
+        <input type="email" name="email" value="<%= user.email %>" placeholder="Enter email" required>
+        <br/><br/>
+        <input type="text" name="mobile" value="<%= user.mobile %>" placeholder="Enter mobile" required>
+        <br/><br/>
+        <input type="submit" value="Update Profile"/>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Edit User</title>
+    <style>
+        .login {
+            width: 400px;
+            background-color: aquamarine;
+            margin: 80px auto;
+            box-shadow: 0px 0px 15px 10px #00ff8ce3;
+        }
+
+        .login h1 {
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .login input {
+            width: 300px;
+            height: 30px;
+            font-size: 20px;
+            margin: 10px 45px;
+            text-align: center;
+        }
+
+        .login input[type='submit'] {
+            width: 306px;
+            height: 35px;
+            font-size: 20px;
+            margin: 10px 45px;
+            cursor: pointer;
+        }
+
+        .login input[type='radio'] {
+            width: 30px;
+            height: 15px;
+            font-size: 20px;
+            margin: 10px 25px;
+            cursor: pointer;
+        }
+
+        .login label {
+            font-size: 22px;
+            /* margin: 10px 0px 0px 40px; */
+            cursor: pointer;
+        }
+    </style>
+    <%-include('../layouts/allCSS') %>
+</head>
+
+<body>
+    <%- include('../layouts/header.ejs') %>
+        <div class="login">
+            <h1>Edit User</h1>
+            <form action="" method="post">
+                <input type="name" required name="name" placeholder="Enter name" value="<%= user.name %>">
+                <input type="email" name="email" required placeholder="Enter email" value="<%= user.email %>">
+                <input type="text" name="mobile" required placeholder="Enter mobile" value="<%= user.mobile %>">
+                <label style="margin-left: 40px;">Verified</label>
+                <input type="radio" name="verify" value="1" <% if(user.is_varified===1){%> checked <% } %> >
+                <label >Unverified</label>
+                <input type="radio" name="verify" value="0" <% if(user.is_varified===0){%> checked <% } %>>
+                <input type="hidden" name="id" value="<%= user._id %>">
+                <input type="submit" value="Update User">
+
+            </form>
+             <a href="/admin/dashboard">Go to Dashboard</a>
+        </div>
+        <%- include('../layouts/footer.ejs') %>
+</body>
+
+</html>
