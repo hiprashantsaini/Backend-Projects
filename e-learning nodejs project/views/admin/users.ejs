@@ -1,0 +1,49 @@
+<h1>All users</h1>
+
+<a href="/admin/courses">Show All courses</a> &ensp;
+<a href="/admin/enrolled-users">Show All enrolled users</a> &ensp;
+<br/>
+<br/>
+
+<form >
+    <input type="text" name="search" placeholder="Search user name, email, mobile"/>
+    <input type="submit" value="Search"/>
+</form>
+<table width="70%">
+    <tr>
+        <th>User Id</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Image</th>
+        <th>Action</th>
+    </tr>
+<% if (users.length>0) { %>
+     <% for(let i=0;i<users.length;i++){ %>
+          <tr>
+            <td><%= users[i].id %></td>
+            <td><%= users[i].name %></td>
+            <td><%= users[i].email %></td>
+            <td><img src="/userImages/<%= users[i].image %>" alt="<%= users[i].image %>" width="50px"><%= users[i].image %></td>
+            <td><a href="/admin/edit-user?id=<%= users[i].id %>">Edit</a></td>
+            <td><a href="/admin/delete-user?id=<%= users[i].id %>">Delete</a></td>
+          </tr>
+          
+        <% } %>
+
+<% } else { %>
+    <tr>
+        <td colspan="5">Users not found</td>
+<% } %>
+    </tr>
+ 
+</table>
+
+<% if(typeof pages!=='undefined' ){ %>
+    <button>Pre</button>
+    <% for(let i=0;i<pages;i++) {%>
+           <b><a href="/admin/users?page=<%= i+1 %>"><%= i+1 %></a></b>&ensp;
+        <% } %>
+        <button>Next</button>
+<% } %>
+<br><br>
+<a href="/admin/login">Go to Home</a>

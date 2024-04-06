@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Add course</title>
+    <%-include('../layouts/allCSS.ejs')  %>
+</head>
+<body>
+    <%- include('../layouts/header.ejs') %>
+        <div class="register">
+            <h1>Add new course</h1>
+           <!-- <form action="/api/register" method="post" enctype="multipart/form-data">enctype for images etc. -->
+            <form action=" " method="post">
+                <input type="text" name="name" placeholder="Enter Course name" required />
+                <br /><br />
+                <input type="text" name="category" placeholder="Enter category" required />
+                <br /><br />
+                <input type="text" name="level" placeholder="Enter level" />
+                <br /><br />
+                <input type="text" name="popularity" placeholder="Enter popularity" />
+                <br /><br />
+                <input type="submit" value="Register" />
+            </form>
+        </div>
+
+        <%- include('../layouts/footer.ejs') %>
+</body>
+</html>

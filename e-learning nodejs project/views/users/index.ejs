@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>User Landing Page</title>
+    <style>
+        .homeHeader {
+            width: 90%;
+            /* border: 1px solid red; */
+            margin: auto;
+        }
+
+        .homeHeader ul {
+            background-color: rgb(232, 253, 246);
+            display: flex;
+            flex-wrap: wrap;
+            list-style: none;
+            font-size: 30px;
+            text-decoration: none;
+            margin-top: 10px;
+            position: relative;
+            padding: 12px;
+        }
+
+
+        .homeHeader ul li a {
+            color: black;
+            padding: 12px;
+            text-decoration: none;
+        }
+
+        .homeHeader ul li a:hover {
+            background-color: rgb(8, 8, 8);
+            color: white;
+            font-size: 32px;
+        }
+
+        #login {
+            position: absolute;
+            right: 150px;
+        }
+
+        #signup {
+            position: absolute;
+            right: 0px;
+        }
+
+        table tr {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="homeHeader">
+        <ul>
+            <li><a href="http://localhost:8080/">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Gallary</a></li>
+            <li id="login"><a href="http://localhost:8080/user/login">Sign in</a></li>
+            <li id="signup"><a href="http://localhost:8080/user/register">Sign up</a></li>
+        </ul>
+    </div>
+    <div><a href="http://localhost:8080/course/show-courses">All Courses</a></div>
+    <div><a href="http://localhost:8080/admin/login">Admin</a></div>
+    <% if(typeof courses!=='undefined' ){ %>
+
+        <table width="70%">
+            <tr>
+                <th>CourseId</th>
+                <th>Course Name</th>
+                <th>Category</th>
+                <th>Level</th>
+                <th>Popularity</th>
+                <th>Action</th>
+            </tr>
+            <% if (courses.length>0) { %>
+                <form>
+                    <input type="text" name="search">
+                    <input type="submit" value="Search">
+                </form>
+                <% for(let i=0;i<courses.length;i++){ %>
+                    <tr>
+                        <td>
+                            <%= courses[i].course_id %>
+                        </td>
+                        <td>
+                            <%= courses[i].course_name %>
+                        </td>
+                        <td>
+                            <%= courses[i].category %>
+                        </td>
+                        <td>
+                            <%= courses[i].level %>
+                        </td>
+                        <td>
+                            <%= courses[i].popularity %>
+                        </td>
+
+                        <td><a href="/user/course-enroll?id=<%= courses[i].course_id %>">Enroll</a></td>
+                    </tr>
+                    <% } %>
+
+                        <% } else { %>
+                            <tr>
+                                <td colspan="5">Users not found</td>
+                                <% } %>
+                            </tr>
+
+        </table>
+        <% } %>
+            <% if(typeof pages!=='undefined' ){ %>
+                <button>Pre</button>
+                <% for(let i=0;i<pages;i++) {%>
+                       <b><a href="/course/show-courses?page=<%= i+1 %>"><%= i+1 %></a></b>&ensp;
+                    <% } %>
+                    <button>Next</button>
+        <% } %>
+
+
+</body>
+
+</html>

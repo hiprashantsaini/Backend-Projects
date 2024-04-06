@@ -1,0 +1,50 @@
+<h1>All courses</h1>
+<a href="/admin/enrolled-users">Show All enrolled users</a> &ensp; &ensp;
+<a href="/admin/add-course">Add New Course</a>
+<br/>
+<br/>
+
+<form >
+    <input type="text" name="search" placeholder="Search user name, email, mobile"/>
+    <input type="submit" value="Search"/>
+</form>
+<table width="70%">
+    <tr>
+        <th>CourseId</th>
+        <th>Course Name</th>
+        <th>Category</th>
+        <th>Level</th>
+        <th>Popularity</th>
+        <th>Action</th>
+    </tr>
+    <% if (courses.length>0) { %>
+        <% for(let i=0;i<courses.length;i++){ %>
+             <tr>
+               <td><%= courses[i].course_id %></td>
+               <td><%= courses[i].course_name %></td>
+               <td><%= courses[i].category %></td>
+               <td><%= courses[i].level %></td>
+               <td><%= courses[i].popularity %></td>
+
+               <td><a href="/admin/delete-course?courseId=<%= courses[i].course_id %>">Delete</a>&ensp;
+                <a href="/admin/edit-course?courseId=<%= courses[i].course_id %>">Edit</a></td>
+             </tr>
+           <% } %>
+   
+   <% } else { %>
+       <tr>
+           <td colspan="5">Users not found</td>
+   <% } %>
+       </tr>
+ 
+</table>
+
+<% if(typeof pages!=='undefined' ){ %>
+    <button>Pre</button>
+    <% for(let i=0;i<pages;i++) {%>
+           <b><a href="/admin/courses?page=<%= i+1 %>"><%= i+1 %></a></b>&ensp;
+        <% } %>
+        <button>Next</button>
+<% } %>
+<br><br>
+<a href="/admin/login">Go to Home</a>

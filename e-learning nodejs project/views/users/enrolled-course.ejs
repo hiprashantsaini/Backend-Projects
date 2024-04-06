@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Enrolled Courses</title>
+    <style>
+        .homeHeader {
+            width: 90%;
+            /* border: 1px solid red; */
+            margin: auto;
+        }
+
+        .homeHeader ul {
+            background-color: rgb(232, 253, 246);
+            display: flex;
+            flex-wrap: wrap;
+            list-style: none;
+            font-size: 30px;
+            text-decoration: none;
+            margin-top: 10px;
+            position: relative;
+            padding: 12px;
+        }
+
+
+        .homeHeader ul li a {
+            color: black;
+            padding: 12px;
+            text-decoration: none;
+        }
+
+        .homeHeader ul li a:hover {
+            background-color: rgb(8, 8, 8);
+            color: white;
+            font-size: 32px;
+        }
+        
+        #login {
+            position: absolute;
+            right: 150px;
+        }
+
+        #signup {
+            position: absolute;
+            right: 0px;
+        }
+        table tr {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="homeHeader">
+        <ul>
+            <li><a href="http://localhost:8080/">Home</a></li>
+        </ul>
+    </div>
+    <% if(typeof courses!=='undefined'){ %>
+
+        <table width="70%">
+            <tr>
+                <th>CourseId</th>
+                <th>Course Name</th>
+                <th>Category</th>
+                <th>Level</th>
+                <th>Popularity</th>
+            </tr>
+        <% if (courses.length>0) { %>
+             <% for(let i=0;i<courses.length;i++){ %>
+                  <tr>
+                    <td><%= courses[i].course_id %></td>
+                    <td><%= courses[i].course_name %></td>
+                    <td><%= courses[i].category %></td>
+                    <td><%= courses[i].level %></td>
+                    <td><%= courses[i].popularity %></td>
+                  </tr>
+                <% } %>
+        
+        <% } else { %>
+            <tr>
+                <td colspan="5">Users not found</td>
+        <% } %>
+            </tr>
+         
+        </table>
+
+        <% } %>
+</body>
+
+</html>

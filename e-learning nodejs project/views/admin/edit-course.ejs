@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Update course</title>
+    <%-include('../layouts/allCSS.ejs')  %>
+</head>
+<body>
+    <%- include('../layouts/header.ejs') %>
+        <div class="register">
+            <h1>Update course</h1>
+           <!-- <form action="/api/register" method="post" enctype="multipart/form-data">enctype for images etc. -->
+            <form action=" " method="post">
+                <input type="hidden" name="course_id" value="<%= course.course_id %>"/>
+                <br /><br />
+                <input type="text" name="name" value="<%= course.course_name %>"/>
+                <br /><br />
+                <input type="text" name="category" value="<%= course.category %>" />
+                <br /><br />
+                <input type="text" name="level" value="<%= course.level %>"/>
+                <br /><br />
+                <input type="text" name="popularity" value="<%= course.popularity %>"/>
+                <br /><br />
+                <input type="submit" value="Update" />
+            </form>
+            <b style="font-size: 50px;"><a href="/admin/login">Go Back</a></b>
+        </div>
+
+        <%- include('../layouts/footer.ejs') %>
+</body>
+</html>

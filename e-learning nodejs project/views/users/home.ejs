@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home page</title>
+</head>
+<body>
+    <h3>Welcome ,<%= user.name %></h3>
+    <table>
+        <tr>
+            <td><img src="userImages/<%= user.image %>" alt="<%= user.image %>" width="80px"></td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td><%= user.email %></td>
+        </tr>
+        <tr>
+            <td>Mobile</td>
+            <td><%= user.mobile %></td>
+        </tr>
+        <tr>
+            <td>Status</td>
+            <td>Verified</td>
+        </tr>
+
+    </table>
+    <h2>Only registered user can access this page</h2>
+    <a href="/user/edit-profile?id=<%=user.id%>">Edit</a>&ensp;&ensp;
+    <a href="/logout">Logout</a>
+
+
+    <div><a href="http://localhost:8080/user/show-courses">All Courses</a></div>
+    <% if(typeof courses!=='undefined'){ %>
+
+        <table width="70%">
+            <tr>
+                <th>CourseId</th>
+                <th>Course Name</th>
+                <th>Category</th>
+                <th>Level</th>
+                <th>Popularity</th>
+                <th>Action</th>
+            </tr>
+        <% if (courses.length>0) { %>
+             <% for(let i=0;i<courses.length;i++){ %>
+                  <tr>
+                    <td><%= courses[i].course_id %></td>
+                    <td><%= courses[i].course_name %></td>
+                    <td><%= courses[i].category %></td>
+                    <td><%= courses[i].level %></td>
+                    <td><%= courses[i].popularity %></td>
+
+                    <td><a href="/user/course-enroll?id=<%= courses[i].course_id %>">Enroll</a></td>
+                  </tr>
+                <% } %>
+        
+        <% } else { %>
+            <tr>
+                <td colspan="5">Users not found</td>
+        <% } %>
+            </tr>
+         
+        </table>
+
+        <% } %>
+
+    <div><a href="http://localhost:8080/user/enrolled-courses">Enrolled Courses</a></div>
+
+</body>
+</html>

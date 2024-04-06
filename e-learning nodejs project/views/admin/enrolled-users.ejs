@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Enrolled users</title>
+    <style>
+        .homeHeader {
+            width: 90%;
+            /* border: 1px solid red; */
+            margin: auto;
+        }
+
+        .homeHeader ul {
+            background-color: rgb(232, 253, 246);
+            display: flex;
+            flex-wrap: wrap;
+            list-style: none;
+            font-size: 30px;
+            text-decoration: none;
+            margin-top: 10px;
+            position: relative;
+            padding: 12px;
+        }
+
+
+        .homeHeader ul li a {
+            color: black;
+            padding: 12px;
+            text-decoration: none;
+        }
+
+        .homeHeader ul li a:hover {
+            background-color: rgb(8, 8, 8);
+            color: white;
+            font-size: 32px;
+        }
+        
+        #login {
+            position: absolute;
+            right: 150px;
+        }
+
+        #signup {
+            position: absolute;
+            right: 0px;
+        }
+        table tr {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="homeHeader">
+        <ul>
+            <li><a href="http://localhost:8080/">Home</a></li>
+        </ul>
+    </div>
+    <% if(typeof users!=='undefined'){ %>
+
+        <table width="70%">
+            <tr>
+                <th>serialno</th>
+                <th>Course Id</th>
+                <th>User Id</th>
+            </tr>
+        <% if (users.length>0) { %>
+             <% for(let i=0;i<users.length;i++){ %>
+                  <tr>
+                    <td><%= users[i].serial_no %></td>
+                    <td><%= users[i].courseid %></td>
+                    <td><%= users[i].userid %></td>
+                  </tr>
+                <% } %>
+        
+        <% } else { %>
+            <tr>
+                <td colspan="5">Data not found</td>
+        <% } %>
+            </tr>
+         
+        </table>
+
+        <% } %>
+<a href="/admin/login">Go to Home</a>
+
+</body>
+
+</html>
