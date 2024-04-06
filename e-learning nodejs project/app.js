@@ -1,3 +1,4 @@
+//app.js is not the part of project. This file has been used for making some changes
 const postgres = require('postgres');
 require('dotenv').config();
 
