@@ -1,0 +1,103 @@
+[
+    {
+      "question": "What is Node.js?",
+      "options": [
+        "A front-end JavaScript framework",
+        "A back-end JavaScript runtime environment",
+        "A database management system",
+        "A mobile application development platform"
+      ],
+      "correctAnswer": 1
+    },
+    {
+      "question": "Which of the following is true about the Node.js event loop?",
+      "options": [
+        "It executes JavaScript code in a multi-threaded environment",
+        "It handles I/O operations asynchronously using callbacks",
+        "It only supports synchronous programming",
+        "It runs tasks sequentially without any event handling"
+      ],
+      "correctAnswer": 1
+    },
+    {
+      "question": "What is the purpose of callbacks in Node.js?",
+      "options": [
+        "To handle asynchronous operations",
+        "To define routes in Express.js",
+        "To manipulate HTML elements",
+        "To define schema in Mongoose"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Which module is commonly used for managing dependencies in Node.js?",
+      "options": [
+        "require.js",
+        "npm",
+        "gulp",
+        "bower"
+      ],
+      "correctAnswer": 1
+    },
+    {
+      "question": "What does the 'require' function do in Node.js?",
+      "options": [
+        "It exports modules",
+        "It imports modules",
+        "It installs packages",
+        "It initializes the event loop"
+      ],
+      "correctAnswer": 1
+    },
+    {
+      "question": "Which method is used to handle errors in Node.js asynchronous operations?",
+      "options": [
+        "try-catch block",
+        "error event",
+        "callback function",
+        "Promise.catch()"
+      ],
+      "correctAnswer": 1
+    },
+    {
+      "question": "What is the primary use of the 'fs' module in Node.js?",
+      "options": [
+        "To interact with the file system",
+        "To create web servers",
+        "To manage databases",
+        "To handle HTTP requests"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Which Node.js framework is commonly used for building web applications?",
+      "options": [
+        "React",
+        "Angular",
+        "Express",
+        "Vue.js"
+      ],
+      "correctAnswer": 2
+    },
+    {
+      "question": "What is the purpose of the 'Buffer' class in Node.js?",
+      "options": [
+        "To handle binary data",
+        "To manipulate strings",
+        "To parse JSON",
+        "To manage events"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Which of the following is NOT a built-in module in Node.js?",
+      "options": [
+        "http",
+        "fs",
+        "path",
+        "request"
+      ],
+      "correctAnswer": 4
+    }
+
+  ]

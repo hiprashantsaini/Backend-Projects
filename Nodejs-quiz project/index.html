@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Node.js Quiz</title>
+    <style>
+        .container {
+            width: 90%;
+            height: 100%;
+            margin: auto;
+            text-align: left;
+            border-radius: 15px;
+            box-shadow: 0px 0px 15px rgb(177, 162, 162);
+            border: 1px solid rgb(141, 92, 92);
+
+        }
+
+        .row1 {
+            width: 90%;
+            height: 100vh;
+            border-bottom: 1px solid rgb(149, 139, 139);
+            margin:20px auto;
+            overflow: scroll;
+        }
+        .row1 button{
+            padding: 5px 10px;
+            font-size: 20px;
+            cursor: pointer;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row1">
+            <h1 style="text-align: center; border-bottom: 2px solid rgb(108, 101, 101);">Node.js Quiz</h1>
+            <form id="quizForm">
+                <!-- Questions will be placed here-->
+
+            </form>
+        </div>
+    </div>
+    <script>
+        fetch('/quiz')
+            .then(response => response.json())
+            .then(data => {
+                const quizForm = document.getElementById('quizForm');
+
+                data.forEach((question, index) => {
+                    quizForm.innerHTML += `
+                        <h3>${index + 1}. ${question.question}</h3>
+                        ${question.options.map((option, i) => `
+                            <label>
+                                <input type="radio" name="answer${index}" value="${i}" required>
+                                ${option}
+                            </label>
+                        `).join('')}
+                        <br><br>
+                    `;
+                });
+                quizForm.innerHTML += `<button type="submit">Submit</button>`;
+
+                quizForm.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+                    const formData = new FormData(quizForm);
+                    const answers = Array.from(formData.values()).map(Number);
+
+                    const response = await fetch('/submit', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ answers })
+                    });
+
+                    const result = await response.json();
+
+                    let html = `<h2>Score: ${result.score}</h2>`;
+                    result.results.forEach(res => {
+                        html += `<p><b>${res.question}</b>: ${res.result}`;
+                        if (res.result === 'incorrect') {
+                            console.log("response", res)
+                            html += ` (Correct answer: ${res.correctAnswer})`;
+                        }
+                        html += `</p>`;
+                    });
+                    html+=`<b style="text-align: center; font-size:20px;"><a href="http://localhost:3000/">Try Again</a></b>`;
+                    quizForm.innerHTML = html;
+
+                });
+            })
+            .catch(error => console.error('Error:', error));
+    </script>
+</body>
+
+</html>
