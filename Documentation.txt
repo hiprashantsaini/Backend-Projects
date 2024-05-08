@@ -1,0 +1,45 @@
+<----Registration------>
+1.register api with username,email,password.
+endpoint: /api/register with post method
+security: secure password with bcrypt.js
+note:username should be unique
+- All fields are required
+
+for example
+URL:localhost:8080/api/register 
+body {
+    "username":"abc",
+    "email":"abc@gmail.com",
+    "password":"12345"
+}
+
+<----Login---->
+Login api with username,password
+endpoint:/api/login with post method
+
+for example
+URL:localhost:8080/api/login 
+body {
+    "username":"abc",
+    "password":"12345"
+}
+
+<---Forget password--->
+1.user send post request with email address in body, for forget password.
+
+for example
+URL:localhost:8080/api/forget-password 
+body {
+    "email":"abc@gmail.com"
+}
+
+Response:send mail to user email 'with google smtp' using 'nodemailer package' with an token
+2.user send 'new password' with 'token' sent with mail from server
+
+for example
+URL:localhost:8080/api/reset-password 
+body {
+    "token":"ak45Ul",
+    "password":"12345"
+}
+Response: reset password and set token=''

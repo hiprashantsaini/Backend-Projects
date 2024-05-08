@@ -1,7 +1,6 @@
 const SECRET_KEY="This_is_secret";
-const emailUser='prashant@gmail.com';
-const emailPassword='izrrh';
-// These are not correct credentials
+const emailUser='prashantsaini4499@gmail.com';
+const emailPassword='izrrhilgpyclhfbd';
 
 module.exports={
     SECRET_KEY,
